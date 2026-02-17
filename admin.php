@@ -73,3 +73,87 @@ if (!isset($_SESSION['admin_logged_in'])) {
     <?php
     exit;
 }
+
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: admin.php');
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
+    $order_id  = (int)$_POST['order_id'];
+    $new_status = $_POST['status'];
+
+    $conn = getDBConnection();
+    $stmt = $conn->prepare("UPDATE orders SET status = ? WHERE id = ?");
+    $stmt->bind_param("si", $new_status, $order_id);
+    $stmt->execute();
+    $stmt->close();
+    $conn->close();
+
+    header('Location: admin.php');
+    exit;
+}
+
+$status_filter  = isset($_GET['status'])  ? $_GET['status']  : 'all';
+$payment_filter = isset($_GET['payment']) ? $_GET['payment'] : 'all';
+
+$conn = getDBConnection();
+
+$where_clauses = [];
+$params = [];
+$types  = '';
+
+if ($status_filter !== 'all') {
+    $where_clauses[] = "o.status = ?";
+    $params[] = $status_filter;
+    $types   .= 's';
+}
+if ($payment_filter === 'verified') {
+    $where_clauses[] = "p.payment_verified = 1";
+} elseif ($payment_filter === 'unverified') {
+    $where_clauses[] = "p.payment_verified = 0";
+}
+
+$where_sql = empty($where_clauses) ? '' : 'WHERE ' . implode(' AND ', $where_clauses);
+
+$query = "SELECT
+    o.*,
+    p.total_amount,
+    p.payment_verified,
+    p.verified_at,
+    p.verified_by,
+    pr.gdrive_link,
+    pr.status   AS production_status,
+    pr.admin_notes,
+    a.username  AS verified_by_name
+    FROM orders o
+    LEFT JOIN payments    p  ON o.id = p.order_id
+    LEFT JOIN productions pr ON o.id = pr.order_id
+    LEFT JOIN admins      a  ON p.verified_by = a.id
+    $where_sql
+    ORDER BY o.created_at DESC";
+
+$stmt = $conn->prepare($query);
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
+}
+$stmt->execute();
+$orders = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
+
+
+$stats_result = $conn->query("SELECT
+    COUNT(*) as total,
+    SUM(CASE WHEN o.status = 'pending'    THEN 1 ELSE 0 END) as pending,
+    SUM(CASE WHEN o.status = 'processing' THEN 1 ELSE 0 END) as processing,
+    SUM(CASE WHEN o.status = 'completed'  THEN 1 ELSE 0 END) as completed,
+    SUM(CASE WHEN o.status = 'cancelled'  THEN 1 ELSE 0 END) as cancelled,
+    SUM(CASE WHEN p.payment_verified = 0  THEN 1 ELSE 0 END) as unverified_payments,
+    SUM(CASE WHEN p.payment_verified = 1  THEN 1 ELSE 0 END) as verified_payments
+    FROM orders o
+    LEFT JOIN payments p ON o.id = p.order_id");
+$stats = $stats_result->fetch_assoc();
+
+$conn->close();
+?>
