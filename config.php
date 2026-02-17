@@ -8,7 +8,7 @@ define('DB_PASS', '');                 // Password database (kosong untuk XAMPP 
 define('DB_NAME', 'frameklip_db');     // Nama database
 
 // WhatsApp Number (tanpa +)
-define('WA_NUMBER', '628123456789');   // GANTI dengan nomor WA Anda
+define('WA_NUMBER', '6281368985901');   // GANTI dengan nomor WA Anda
 
 // SeaBank Account Info
 define('BANK_NAME', 'SeaBank');
