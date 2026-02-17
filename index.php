@@ -162,3 +162,189 @@ require_once 'config.php';
             </div>
         </div>
     </nav>
+
+    <!-- Hero Section with Banner -->
+    <section id="home" class="hero-bg pt-32 pb-20 px-6">
+        <div class="container mx-auto">
+            <!-- Banner Image -->
+            <div class="max-w-6xl mx-auto mb-8">
+                <img src="banner.jpg" alt="FrameKlip Banner" class="w-full rounded-2xl shadow-2xl border-4 border-orange/30 hover:scale-105 transition-transform duration-300">
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="text-center">
+                <a href="#layanan" class="btn-orange px-8 py-4 rounded-full text-lg font-semibold inline-block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                    🎬 Lihat Layanan & Harga
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Section -->
+    <section id="layanan" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center text-navy mb-4">Layanan Kami</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Pilih paket yang sesuai dengan kebutuhan Anda
+            </p>
+            
+            <!-- Regular Package -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-navy mb-4 text-center">
+                    <span class="orange text-white px-6 py-2 rounded-full">Paket Regular</span>
+                </h3>
+                <p class="text-center text-gray-600 mb-10 text-lg font-semibold">⏱️ Pengerjaan: 3-4 Hari Kerja</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="card-service bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow">
+                        <div class="orange text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-navy mb-2 text-center">Edit Reels / Video Pendek</h4>
+                        <div class="text-center mb-3">
+                            <span class="text-3xl font-bold text-orange">Rp 15K</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center text-sm">Perfect untuk Instagram Reels, TikTok, dan YouTube Shorts</p>
+                        <button onclick="showGuideModal('Edit Reels / Video Pendek', 'Regular')" class="btn-orange w-full py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <div class="card-service bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow">
+                        <div class="orange text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-navy mb-2 text-center">Cinematic</h4>
+                        <div class="text-center mb-3">
+                            <span class="text-3xl font-bold text-orange">Rp 20K</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center text-sm">Video dengan kualitas sinematik untuk proyek premium</p>
+                        <button onclick="showGuideModal('Cinematic', 'Regular')" class="btn-orange w-full py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <div class="card-service bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow">
+                        <div class="orange text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-navy mb-2 text-center">Dokumenter</h4>
+                        <div class="text-center mb-3">
+                            <span class="text-3xl font-bold text-orange">Rp 50K</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center text-sm">Edit profesional untuk video dokumentasi dan cerita</p>
+                        <button onclick="showGuideModal('Dokumenter', 'Regular')" class="btn-orange w-full py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <div class="card-service bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow">
+                        <div class="orange text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-navy mb-2 text-center">Preset</h4>
+                        <div class="text-center mb-3">
+                            <span class="text-3xl font-bold text-orange">Rp 20K</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center text-sm">Preset LUT dan filter siap pakai untuk editing cepat</p>
+                        <button onclick="showGuideModal('Preset', 'Regular')" class="btn-orange w-full py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-3xl font-bold text-navy mb-4 text-center">
+                    <span class="navy text-white px-6 py-2 rounded-full">⚡ Paket Fast Track</span>
+                </h3>
+                <p class="text-center text-gray-600 mb-10 text-lg font-semibold">⚡ Pengerjaan: 1-2 Hari Kerja</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="card-service bg-white rounded-xl shadow-lg p-6 border-2 border-orange hover:shadow-2xl transition-shadow relative">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                            ⚡ FAST
+                        </div>
+                        <div class="navy text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-navy mb-2 text-center">Edit Reels / Video Pendek</h4>
+                        <div class="text-center mb-3">
+                            <span class="text-3xl font-bold text-navy">Rp 25K</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center text-sm">Prioritas pengerjaan untuk deadline ketat</p>
+                        <button onclick="showGuideModal('Edit Reels / Video Pendek', 'Fast Track')" class="btn-navy w-full py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <div class="card-service bg-white rounded-xl shadow-lg p-6 border-2 border-orange hover:shadow-2xl transition-shadow relative">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                            ⚡ FAST
+                        </div>
+                        <div class="navy text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-navy mb-2 text-center">Cinematic</h4>
+                        <div class="text-center mb-3">
+                            <span class="text-3xl font-bold text-navy">Rp 30K</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center text-sm">Kualitas premium dengan waktu lebih cepat</p>
+                        <button onclick="showGuideModal('Cinematic', 'Fast Track')" class="btn-navy w-full py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <div class="card-service bg-white rounded-xl shadow-lg p-6 border-2 border-orange hover:shadow-2xl transition-shadow relative">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                            ⚡ FAST
+                        </div>
+                        <div class="navy text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-navy mb-2 text-center">Dokumenter</h4>
+                        <div class="text-center mb-3">
+                            <span class="text-3xl font-bold text-navy">Rp 80K</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center text-sm">Dokumentasi berkualitas dengan timeline singkat</p>
+                        <button onclick="showGuideModal('Dokumenter', 'Fast Track')" class="btn-navy w-full py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+
+                    <div class="card-service bg-white rounded-xl shadow-lg p-6 border-2 border-orange hover:shadow-2xl transition-shadow relative">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                            ⚡ FAST
+                        </div>
+                        <div class="navy text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-navy mb-2 text-center">Preset</h4>
+                        <div class="text-center mb-3">
+                            <span class="text-3xl font-bold text-navy">Rp 30K</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-center text-sm">Dapatkan preset custom lebih cepat</p>
+                        <button onclick="showGuideModal('Preset', 'Fast Track')" class="btn-navy w-full py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Pesan Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
