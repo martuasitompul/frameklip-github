@@ -1,0 +1,27 @@
+# robots.txt for FrameKlip
+# Allow search engines to index the site
+
+User-agent: *
+Allow: /
+
+# Disallow admin area
+Disallow: /admin.php
+
+# Disallow API endpoints
+Disallow: /api.php
+Disallow: /verify_payment.php
+Disallow: /complete_order.php
+
+# Disallow config and database files
+Disallow: /config.php
+Disallow: /database.sql
+
+# Disallow documentation files
+Disallow: /*.md$
+
+# Allow images
+Allow: /*.jpg$
+Allow: /*.png$
+
+# Sitemap (if you create one later)
+# Sitemap: https://yourdomain.com/sitemap.xml
