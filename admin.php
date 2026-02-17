@@ -199,5 +199,69 @@ $conn->close();
                 <a href="?logout=1" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded font-semibold transition">Logout</a>
             </div>
         </nav>
+        
+        <div class="container mx-auto px-4 py-8">
+
+            <!-- Statistics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-8">
+                <div class="bg-white p-5 rounded-lg shadow text-center">
+                    <h3 class="text-gray-500 text-xs font-semibold uppercase mb-1">Total</h3>
+                    <p class="text-3xl font-bold text-gray-800"><?php echo $stats['total'] ?? 0; ?></p>
+                </div>
+                <div class="bg-yellow-50 p-5 rounded-lg shadow text-center">
+                    <h3 class="text-yellow-700 text-xs font-semibold uppercase mb-1">Pending</h3>
+                    <p class="text-3xl font-bold text-yellow-800"><?php echo $stats['pending'] ?? 0; ?></p>
+                </div>
+                <div class="bg-blue-50 p-5 rounded-lg shadow text-center">
+                    <h3 class="text-blue-700 text-xs font-semibold uppercase mb-1">Processing</h3>
+                    <p class="text-3xl font-bold text-blue-800"><?php echo $stats['processing'] ?? 0; ?></p>
+                </div>
+                <div class="bg-green-50 p-5 rounded-lg shadow text-center">
+                    <h3 class="text-green-700 text-xs font-semibold uppercase mb-1">Completed</h3>
+                    <p class="text-3xl font-bold text-green-800"><?php echo $stats['completed'] ?? 0; ?></p>
+                </div>
+                <div class="bg-red-50 p-5 rounded-lg shadow text-center">
+                    <h3 class="text-red-700 text-xs font-semibold uppercase mb-1">Cancelled</h3>
+                    <p class="text-3xl font-bold text-red-800"><?php echo $stats['cancelled'] ?? 0; ?></p>
+                </div>
+                <div class="bg-orange-50 p-5 rounded-lg shadow border-2 border-orange-200 text-center">
+                    <h3 class="text-orange-700 text-xs font-semibold uppercase mb-1">⏳ Belum Verified</h3>
+                    <p class="text-3xl font-bold text-orange-800"><?php echo $stats['unverified_payments'] ?? 0; ?></p>
+                </div>
+                <div class="bg-emerald-50 p-5 rounded-lg shadow text-center">
+                    <h3 class="text-emerald-700 text-xs font-semibold uppercase mb-1">✅ Verified</h3>
+                    <p class="text-3xl font-bold text-emerald-800"><?php echo $stats['verified_payments'] ?? 0; ?></p>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="bg-white p-4 rounded-lg shadow mb-6">
+                <div class="flex flex-wrap gap-2 items-center">
+                    <span class="font-semibold text-gray-700 text-sm">Filter Status:</span>
+                    <?php
+                    $status_options = ['all' => 'Semua', 'pending' => 'Pending', 'processing' => 'Processing', 'completed' => 'Completed', 'cancelled' => 'Cancelled'];
+                    foreach ($status_options as $val => $label):
+                        $active = $status_filter === $val ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300';
+                    ?>
+                    <a href="?status=<?php echo $val; ?>&payment=<?php echo $payment_filter; ?>"
+                    class="px-4 py-2 rounded text-sm font-medium transition <?php echo $active; ?>">
+                        <?php echo $label; ?>
+                    </a>
+                    <?php endforeach; ?>
+
+                    <span class="font-semibold text-gray-700 text-sm ml-4">Payment:</span>
+                    <?php
+                    $pay_options = ['all' => 'Semua', 'unverified' => '⏳ Belum', 'verified' => '✅ Verified'];
+                    foreach ($pay_options as $val => $label):
+                        $active = $payment_filter === $val ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300';
+                    ?>
+                    <a href="?status=<?php echo $status_filter; ?>&payment=<?php echo $val; ?>"
+                    class="px-4 py-2 rounded text-sm font-medium transition <?php echo $active; ?>">
+                        <?php echo $label; ?>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
     </body>
 </html>
