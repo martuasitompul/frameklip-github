@@ -723,5 +723,251 @@ require_once 'config.php';
         </div>
     </div>
 
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Order Modal Functions
+        let currentOrder = {};
+
+        let pendingOrderData = null;
+
+        function showGuideModal(service, packageType) {
+            pendingOrderData = { service: service, package: packageType };
+            document.getElementById('guideModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGuideModal() {
+            document.getElementById('guideModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function proceedToOrderForm() {
+            if (pendingOrderData) {
+                closeGuideModal();
+                setTimeout(() => {
+                    openOrderModal(pendingOrderData.service, pendingOrderData.package);
+                }, 300);
+            }
+        }
+
+        function openOrderModal(service, packageType) {
+            currentOrder = { service, package: packageType };
+            document.getElementById('selectedService').textContent = service;
+            document.getElementById('selectedPackage').textContent = packageType;
+            document.getElementById('orderModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset form and error
+            document.getElementById('orderForm').reset();
+            document.getElementById('errorMessage').classList.add('hidden');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        async function handleOrderSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('customerName').value;
+            const email = document.getElementById('customerEmail').value;
+            const phone = document.getElementById('customerPhone').value;
+            const notes = document.getElementById('customerNotes').value;
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const errorDiv = document.getElementById('errorMessage');
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<div class="loading mx-auto"></div>';
+            errorDiv.classList.add('hidden');
+            
+            try {
+                const response = await fetch('api.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        service: currentOrder.service,
+                        package: currentOrder.package,
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        notes: notes
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Calculate price based on service and package
+                    const prices = {
+                        'Edit Reels / Video Pendek': { 'Regular': 15000, 'Fast Track': 25000 },
+                        'Cinematic': { 'Regular': 20000, 'Fast Track': 30000 },
+                        'Dokumenter': { 'Regular': 50000, 'Fast Track': 80000 },
+                        'Preset': { 'Regular': 20000, 'Fast Track': 30000 }
+                    };
+                    
+                    // Calculate estimate time based on package
+                    const estimates = {
+                        'Regular': '3-4 hari kerja',
+                        'Fast Track': '1-2 hari kerja'
+                    };
+                    
+                    const price = prices[currentOrder.service][currentOrder.package];
+                    const formattedPrice = 'Rp ' + price.toLocaleString('id-ID');
+                    const estimate = estimates[currentOrder.package];
+                    
+                    // Update summary
+                    document.getElementById('orderId').textContent = data.order_id;
+                    document.getElementById('summaryService').textContent = currentOrder.service;
+                    document.getElementById('summaryPackage').textContent = currentOrder.package;
+                    document.getElementById('summaryEstimate').textContent = estimate;
+                    document.getElementById('summaryPrice').textContent = formattedPrice;
+                    document.getElementById('summaryName').textContent = name;
+                    document.getElementById('summaryEmail').textContent = email;
+                    document.getElementById('summaryPhone').textContent = phone;
+                    
+                    // Set WhatsApp URL
+                    document.getElementById('whatsappBtn').href = data.wa_url;
+                    
+                    // Close order modal and open payment modal
+                    closeOrderModal();
+                    document.getElementById('paymentModal').classList.add('active');
+                    
+                    // Start auto-redirect countdown
+                    startAutoRedirect(data.wa_url);
+                    
+                } else {
+                    // Show error
+                    errorDiv.textContent = data.message || 'Terjadi kesalahan. Silakan coba lagi.';
+                    errorDiv.classList.remove('hidden');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                errorDiv.textContent = 'Terjadi kesalahan koneksi. Silakan coba lagi.';
+                errorDiv.classList.remove('hidden');
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Lanjut ke Pembayaran';
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const orderModal = document.getElementById('orderModal');
+            const paymentModal = document.getElementById('paymentModal');
+            
+            if (event.target === orderModal) {
+                closeOrderModal();
+            }
+            if (event.target === paymentModal) {
+                closePaymentModal();
+            }
+        }
+
+        // Smooth scroll offset for fixed navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Auto-redirect to WhatsApp with fallback
+        let autoRedirectTimer = null;
+        let countdownInterval = null;
+
+        function startAutoRedirect(waUrl) {
+            let seconds = 5;
+            const countdownEl = document.getElementById('countdown');
+            
+            // Update countdown display
+            countdownInterval = setInterval(() => {
+                seconds--;
+                if (countdownEl) {
+                    countdownEl.textContent = seconds;
+                }
+                
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    // Try to open WhatsApp with multiple methods
+                    openWhatsApp(waUrl);
+                }
+            }, 1000);
+        }
+
+        function openWhatsApp(url) {
+            // Method 1: Try window.open (works on most browsers)
+            const newWindow = window.open(url, '_blank');
+            
+            // Method 2: Fallback if popup blocked
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                // Popup blocked, try direct location change
+                window.location.href = url;
+            }
+        }
+
+        function cancelAutoRedirect() {
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+            }
+            if (autoRedirectTimer) {
+                clearTimeout(autoRedirectTimer);
+                autoRedirectTimer = null;
+            }
+            
+            // Hide countdown section
+            const countdownParent = document.getElementById('countdown')?.closest('.bg-green-50');
+            if (countdownParent) {
+                countdownParent.style.display = 'none';
+            }
+        }
+
+        // Reset countdown when closing payment modal
+        function closePaymentModal() {
+            cancelAutoRedirect();
+            document.getElementById('paymentModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
+
+
+    
+
 </body>
 </html>
