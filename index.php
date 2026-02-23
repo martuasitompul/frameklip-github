@@ -502,7 +502,7 @@ require_once 'config.php';
         <div class="container mx-auto text-center">
             <img src="logo.png" alt="FrameKlip Logo" class="h-20 w-20 mx-auto mb-3 object-cover rounded-full" style="background: transparent; padding: 2px;">
             <h3 class="text-2xl font-bold text-white mb-2">Frame<span class="text-orange">Klip</span></h3>
-            <p> class="text-2x1 font-bold text-while mb-2">FrameKita adalah platform jasa video editing profesional untuk kebutuhan konten kreator,
+            <p class="text-white">FrameKita adalah platform jasa video editing profesional untuk kebutuhan konten kreator,
 UMKM, dan personal branding. Kami menyediakan layanan edit video berkualitas tinggi
 untuk media sosial, promosi, dan kebutuhan digital lainnya dengan proses cepat dan hasil maksimal.</p>"
             <p class="text-gray-300">&copy; 2024 FrameKlip. All rights reserved.</p>
