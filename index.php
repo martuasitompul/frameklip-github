@@ -164,21 +164,44 @@ require_once 'config.php';
     </nav>
 
     <!-- Hero Section with Banner -->
-    <section id="home" class="hero-bg pt-32 pb-20 px-6">
-        <div class="container mx-auto">
-            <!-- Banner Image -->
-            <div class="max-w-6xl mx-auto mb-8">
-                <img src="banner.jpg" alt="FrameKlip Banner" class="w-full rounded-2xl shadow-2xl border-4 border-orange/30 hover:scale-105 transition-transform duration-300">
+<section id="home" class="hero-bg pt-32 pb-20 px-6">
+    <div class="container mx-auto">
+
+        <!-- Slider -->
+        <div class="relative max-w-6xl mx-auto mb-8 overflow-hidden rounded-2xl shadow-2xl border-4 border-orange/30">
+
+            <!-- Slides -->
+            <div id="slider" class="flex transition-transform duration-500">
+
+                <img src="banner1.jpg" class="w-full flex-shrink-0">
+                <img src="banner2.jpg" class="w-full flex-shrink-0">
+                <img src="banner3.jpg" class="w-full flex-shrink-0">
+
             </div>
-            
-            <!-- CTA Buttons -->
-            <div class="text-center">
-                <a href="#layanan" class="btn-orange px-8 py-4 rounded-full text-lg font-semibold inline-block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
-                    🎬 Lihat Layanan & Harga
-                </a>
-            </div>
+
+            <!-- Tombol Kiri -->
+            <button onclick="prevSlide()" 
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-2 rounded-full">
+                ❮
+            </button>
+
+            <!-- Tombol Kanan -->
+            <button onclick="nextSlide()" 
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-2 rounded-full">
+                ❯
+            </button>
+
         </div>
-    </section>
+
+        <!-- CTA Button -->
+        <div class="text-center">
+            <a href="#layanan" class="btn-orange px-8 py-4 rounded-full text-lg font-semibold inline-block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                🎬 Lihat Layanan & Harga
+            </a>
+        </div>
+
+    </div>
+</section>
 
     <!-- Layanan Section -->
     <section id="layanan" class="py-20 px-6 bg-white">
@@ -504,7 +527,7 @@ require_once 'config.php';
             <h3 class="text-2xl font-bold text-white mb-2">Frame<span class="text-orange">Klip</span></h3>
             <p class="text-white">FrameKita adalah platform jasa video editing profesional untuk kebutuhan konten kreator,
 UMKM, dan personal branding. Kami menyediakan layanan edit video berkualitas tinggi
-untuk media sosial, promosi, dan kebutuhan digital lainnya dengan proses cepat dan hasil maksimal.</p>"
+untuk media sosial, promosi, dan kebutuhan digital lainnya dengan proses cepat dan hasil maksimal.</p>
             <p class="text-gray-300">&copy; 2024 FrameKlip. All rights reserved.</p>
         </div>
     </footer>
@@ -964,7 +987,36 @@ untuk media sosial, promosi, dan kebutuhan digital lainnya dengan proses cepat d
             cancelAutoRedirect();
             document.getElementById('paymentModal').classList.remove('active');
             document.body.style.overflow = 'auto';
-        }
+        }    
     </script>
+    <script>
+/* =========================
+   HERO SLIDER
+========================= */
+let currentIndex = 0;
+const slider = document.getElementById('slider');
+
+if (slider) {
+    const totalSlides = slider.children.length;
+
+    function updateSlide() {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    window.nextSlide = function () {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlide();
+    }
+
+    window.prevSlide = function () {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlide();
+    }
+
+    setInterval(() => {
+        nextSlide();
+    }, 4000);
+}
+</script>
 </body>
 </html>
