@@ -168,7 +168,7 @@ require_once 'config.php';
         <div class="container mx-auto">
             <!-- Banner Image -->
             <div class="max-w-6xl mx-auto mb-8">
-                <img src="banner.jpg" alt="FrameKlip Banner" class="w-full rounded-2xl shadow-2xl border-4 border-orange/30 hover:scale-105 transition-transform duration-300">
+                <img src="banner.jpg" alt="FrameKlip Banner" class   ="w-full rounded-2xl shadow-2xl border-4 border-orange/30 hover:scale-105 transition-transform duration-300">
             </div>
             
             <!-- CTA Buttons -->
