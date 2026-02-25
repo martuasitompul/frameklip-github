@@ -164,36 +164,58 @@ require_once 'config.php';
     </nav>
 
     <!-- Hero Section with Banner -->
-<section id="home" class="hero-bg pt-32 pb-20 px-6">
-    <div class="container mx-auto">
+<section id="home" class="relative pt-32 pb-20 px-6 overflow-hidden">
 
-        <!-- Slider -->
-        <div class="relative max-w-6xl mx-auto mb-8 overflow-hidden rounded-2xl shadow-2xl border-4 border-orange/30">
+    <!-- ================= BACKGROUND ================= -->
+    <div class="absolute inset-0">
+        <img src="background.jpg" class="w-full h-full object-cover">
+        <!-- Kalau mau video, ganti pakai <video> -->
+    </div>
 
-            <!-- Slides -->
-            <div id="slider" class="flex transition-transform duration-500">
+    <!-- ================= OVERLAY ================= -->
+    <div class="absolute inset-0 bg-black/60"></div>
 
-                <img src="banner1.jpg" class="w-full flex-shrink-0">
-                <img src="banner2.jpg" class="w-full flex-shrink-0">
-                <img src="banner3.jpg" class="w-full flex-shrink-0">
+    <!-- ================= CONTENT ================= -->
+    <div class="relative container mx-auto z-10">
+
+        <!-- SLIDER -->
+        <div class="max-w-6xl mx-auto mb-8 relative overflow-hidden rounded-2xl shadow-2xl border-4 border-orange/30">
+
+            <!-- SLIDES WRAPPER -->
+            <div id="slider" class="flex transition-transform duration-500 ease-in-out">
+
+                <!-- BANNER 1 -->
+                <div class="w-full flex-shrink-0">
+                    <img src="banner1.jpg" class="w-full">
+                </div>
+
+                <!-- BANNER 2 -->
+                <div class="w-full flex-shrink-0">
+                    <img src="banner2.jpg" class="w-full">
+                </div>
+
+                <!-- BANNER 3 -->
+                <div class="w-full flex-shrink-0">
+                    <img src="banner3.jpg" class="w-full">
+                </div>
 
             </div>
 
-            <!-- Tombol Kiri -->
+            <!-- BUTTON LEFT -->
             <button onclick="prevSlide()" 
-                class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-2 rounded-full">
+                class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white px-4 py-2 rounded-full">
                 ❮
             </button>
 
-            <!-- Tombol Kanan -->
+            <!-- BUTTON RIGHT -->
             <button onclick="nextSlide()" 
-                class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-2 rounded-full">
+                class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white px-4 py-2 rounded-full">
                 ❯
             </button>
 
         </div>
 
-        <!-- CTA Button -->
+        <!-- CTA BUTTON -->
         <div class="text-center">
             <a href="#layanan" class="btn-orange px-8 py-4 rounded-full text-lg font-semibold inline-block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
                 🎬 Lihat Layanan & Harga
