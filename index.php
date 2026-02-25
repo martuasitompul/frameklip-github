@@ -226,7 +226,7 @@ require_once 'config.php';
 </section>
 
     <!-- Layanan Section -->
-    <section id="layanan" class="py-20 px-6 bg-white">
+    <section id="layanan" class="py-20 bg-gradient-to-b from-[#0b1120] to-[#111827]">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center text-navy mb-4">Layanan Kami</h2>
             <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
