@@ -513,11 +513,6 @@ require_once 'config.php';
                                 <h3 class="font-semibold text-navy">WhatsApp</h3>
                                 <a href="https://wa.me/<?php echo WA_NUMBER; ?>" class="text-gray-600 hover:text-orange transition">+62 813-6898-5901</a>
                             </div>
-
-                            <div>
-                                <h3 class="font-semibold text-navy">Linktree</h3>
-                                <a href="https://linktr.ee/frameklipofficial"class="text-gray-600 hover:text-orange transition">Saluran Framekita</a>
-                            </div>
                         </div>
 
                         <div class="flex items-center space-x-4">
