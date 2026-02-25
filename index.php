@@ -514,7 +514,21 @@ require_once 'config.php';
                                 <a href="https://wa.me/<?php echo WA_NUMBER; ?>" class="text-gray-600 hover:text-orange transition">+62 813-6898-5901</a>
                             </div>
                         </div>
-
+                        <div class="flex items-center space-x-4">
+    <div class="orange text-white w-12 h-12 rounded-full flex items-center justify-center">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+            d="M8 17l4 4 4-4m0-5l-4-4-4 4"></path>
+        </svg>
+    </div>
+    <div>
+        <h3 class="font-semibold text-navy">Linktree</h3>
+        <a href="https://linktr.ee/frameklipofficial"target="_blank" 
+           class="text-gray-600 hover:text-orange transition">
+           linktr.ee/frameklipofficial
+        </a>
+    </div>
+</div>
                         <div class="flex items-center space-x-4">
                             <div class="orange text-white w-12 h-12 rounded-full flex items-center justify-center">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
