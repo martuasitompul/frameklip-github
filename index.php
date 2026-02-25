@@ -524,7 +524,7 @@ require_once 'config.php';
     <div>
         <h3 class="font-semibold text-navy">Linktree</h3>
         <a href="https://linktr.ee/frameklipofficial"target="_blank" 
-           class="text-gray-600 hover:text-orange transition">
+           class="text-blue-600 hover:text-blue-800 transition">
            linktr.ee/frameklipofficial
         </a>
     </div>
