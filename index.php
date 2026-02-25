@@ -549,14 +549,12 @@ require_once 'config.php';
     <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/<?php echo WA_NUMBER; ?>?text=Halo%20FrameKlip!%20Saya%20mau%20tanya%20tentang%20layanan%20editing%20video" 
    target="_blank"
-   class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full 
-   flex items-center justify-center z-50
-   shadow-[0_0_15px_#22c55e,0_0_30px_#3b82f6]
-   hover:shadow-[0_0_25px_#22c55e,0_0_50px_#3b82f6]
-   hover:scale-110
-   animate-pulse
-   transition-all duration-300"
-   title="Chat via WhatsApp">
+   class="fixed bottom-6 right-6 w-16 h-16 z-50 animate-bounce">
+
+    <img src="wa-baru.png" 
+         alt="WhatsApp"
+         class="w-full h-full object-contain drop-shadow-2xl hover:scale-110 transition duration-300">
+</a>
 
     <!-- Footer -->
     <footer class="navy py-8 px-6">
