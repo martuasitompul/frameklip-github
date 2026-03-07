@@ -393,7 +393,7 @@ require_once 'config.php';
     </section>
 
         <!-- About Us Section -->
-    <section id="about" class="py-24 px-6 relative overflow-hidden" style="background: bg-gradient-to-b from-slate-900 to-slate-800">
+    <section id="about" class="py-24 px-6 relative overflow-hidden" style="background: linear-gradient(135deg, #0a0e27 0%, #1e3a8a 50%, #3b82f6 100%);">
         <!-- Animated Background Elements -->
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-20 left-10 w-72 h-72 bg-orange rounded-full blur-3xl animate-pulse"></div>
