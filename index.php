@@ -155,10 +155,10 @@ require_once 'config.php';
                 </button>
             </div>
             <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
-                <a href="#home" class="block text-white hover:text-orange transition py-2">Home</a>
-                <a href="#layanan" class="block text-white hover:text-orange transition py-2">Services</a>
-                <a href="#about" class="block text-white hover:text-orange transition py-2">About</a>
-                <a href="#contact" class="block text-white hover:text-orange transition py-2">Contact</a>
+                    <a href="#home" class="block text-white hover:text-orange transition py-2">Home</a>
+                    <a href="#layanan" class="block text-white hover:text-orange transition py-2">Services</a>
+                    <a href="#about" class="block text-white hover:text-orange transition py-2">About</a>
+                    <a href="#contact" class="block text-white hover:text-orange transition py-2">Contact</a>
             </div>
         </div>
     </nav>
@@ -393,7 +393,7 @@ require_once 'config.php';
     </section>
 
         <!-- About Us Section -->
-    <section id="about" class="py-24 px-6 relative overflow-hidden" style="background: linear-gradient(135deg, #0a0e27 0%, #1e3a8a 50%, #3b82f6 100%);">
+    <section id="about" class="py-24 px-6 relative overflow-hidden" style="background: bg-gradient-to-b from-slate-900 to-slate-800">
         <!-- Animated Background Elements -->
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-20 left-10 w-72 h-72 bg-orange rounded-full blur-3xl animate-pulse"></div>
