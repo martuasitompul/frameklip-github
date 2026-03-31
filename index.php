@@ -737,7 +737,7 @@ untuk media sosial, promosi, dan kebutuhan digital lainnya dengan proses cepat d
             </div>
             
             <!-- Informasi Rekening -->
-            <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6 text-center">
+            <<div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6 text-center">
     <h4 class="text-lg font-bold text-navy mb-4">Scan QRIS untuk Pembayaran:</h4>
     
     <img src="qris.jpg" alt="QRIS FrameKlip" 
@@ -746,6 +746,12 @@ untuk media sosial, promosi, dan kebutuhan digital lainnya dengan proses cepat d
     <p class="text-sm text-gray-600 mt-4">
         Gunakan aplikasi e-wallet / m-banking untuk scan QR di atas
     </p>
+
+    <!-- Tombol Download -->
+    <a href="qris.jpg" download 
+       class="mt-4 inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition">
+       ⬇️ Download QRIS
+    </a>
 </div>
             
             <!-- Instruksi -->
