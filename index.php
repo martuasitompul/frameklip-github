@@ -485,7 +485,7 @@ require_once 'config.php';
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 bg-gray-100">
+    <section id="contact" class="py-20 px-6 bg-gradient-to-b from-[#0b1120] to-[#111827]">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center text-navy mb-12">Contact Us</h2>
             <div class="max-w-2xl mx-auto">
