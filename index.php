@@ -737,19 +737,16 @@ untuk media sosial, promosi, dan kebutuhan digital lainnya dengan proses cepat d
             </div>
             
             <!-- Informasi Rekening -->
-            <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
-                <h4 class="text-lg font-bold text-navy mb-4">Transfer ke Rekening:</h4>
-                <div class="flex items-center space-x-4 mb-4">
-                    <div class="bg-white px-4 py-2 rounded">
-                        <div class="text-blue-600 font-bold text-xl"><?php echo BANK_NAME; ?></div>
-                    </div>
-                    <div>
-                        <p class="text-sm text-gray-600">Nomor Rekening</p>
-                        <p class="text-2xl font-bold text-navy"><?php echo BANK_ACCOUNT; ?></p>
-                        <p class="text-sm text-gray-600">a.n. <?php echo BANK_HOLDER; ?></p>
-                    </div>
-                </div>
-            </div>
+            <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6 text-center">
+    <h4 class="text-lg font-bold text-navy mb-4">Scan QRIS untuk Pembayaran:</h4>
+    
+    <img src="qris.jpg" alt="QRIS FrameKlip" 
+         class="mx-auto rounded-lg shadow-lg w-64">
+    
+    <p class="text-sm text-gray-600 mt-4">
+        Gunakan aplikasi e-wallet / m-banking untuk scan QR di atas
+    </p>
+</div>
             
             <!-- Instruksi -->
             <div class="bg-orange-50 border-2 border-orange-200 rounded-lg p-6 mb-6">
