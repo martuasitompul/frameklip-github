@@ -419,11 +419,11 @@ require_once 'config.php';
                 <!-- Stats Section -->
                 <div class="grid md:grid-cols-3 gap-6 mb-16">
                     <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-2xl p-8 border border-white/20 text-center transform hover:scale-105 transition-all duration-300">
-                        <div class="text-6xl font-bold text-orange mb-2">500+</div>
+                        <div class="text-6xl font-bold text-orange mb-2">10+</div>
                         <p class="text-white text-lg font-semibold">Videos Delivered</p>
                     </div>
                     <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-2xl p-8 border border-white/20 text-center transform hover:scale-105 transition-all duration-300">
-                        <div class="text-6xl font-bold text-orange mb-2">200+</div>
+                        <div class="text-6xl font-bold text-orange mb-2">10+</div>
                         <p class="text-white text-lg font-semibold">Happy Clients</p>
                     </div>
                     <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-2xl p-8 border border-white/20 text-center transform hover:scale-105 transition-all duration-300">
