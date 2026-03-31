@@ -972,7 +972,7 @@ untuk media sosial, promosi, dan kebutuhan digital lainnya dengan proses cepat d
         let countdownInterval = null;
 
         function startAutoRedirect(waUrl) {
-            let seconds = 5;
+            let seconds = 100;
             const countdownEl = document.getElementById('countdown');
             
             // Update countdown display
