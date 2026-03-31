@@ -766,7 +766,7 @@ untuk media sosial, promosi, dan kebutuhan digital lainnya dengan proses cepat d
             <!-- Auto-Redirect Info -->
             <div class="bg-green-50 border-2 border-green-200 rounded-lg p-4 mb-6 text-center">
                 <p class="text-green-700 font-semibold mb-2">
-                    🚀 Akan otomatis membuka WhatsApp dalam <span id="countdown" class="text-2xl font-bold">5</span> detik...
+                    🚀 Akan otomatis membuka WhatsApp dalam <span id="countdown" class="text-2xl font-bold">100</span> detik...
                 </p>
                 <p class="text-sm text-gray-600">Atau klik tombol di bawah untuk langsung kirim sekarang</p>
             </div>
